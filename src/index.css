@@ -1,0 +1,122 @@
+@font-face {
+  font-family: "Old English";
+  src: url(./fonts/OldeEnglish.ttf);
+}
+@font-face {
+  font-family: "Times";
+  src: url(./fonts/times\ new\ roman.ttf);
+}
+@font-face {
+  font-family: "BebasNeue";
+  src: url(./fonts/BebasNeue-Regular.ttf);
+}
+
+@import "tailwindcss";
+
+@theme {
+  /* colors */
+  --color-paper: #fcfcfc;
+  --color-mainlines: #000000;
+  --color-darktext: #333333;
+  --color-midText: #666666;
+  --color-lightText: #d8cfc0;
+
+  /* fonts */
+  --font-title: "Old English", "Times", "serif";
+  --font-subHead: "Times", "serif";
+  --font-headline: "BebasNeue", "Arial", "sans-serif";
+  --font-content: "Arial", "sans-serif";
+}
+
+/* ::-webkit-scrollbar {
+  width: 10px;
+  background: var(--color-lightText);
+} */
+
+/* ::-webkit-scrollbar-thumb {
+  width: 5px;
+  height: 5px;
+  margin: auto;
+  background: var(--color-DarkText);
+} */
+
+/* common styles */
+.slideUp {
+  position: relative;
+  background: transparent;
+  color: var(--color-mainlines);
+  /* display: flex; */
+  align-items: center;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+.slideUp::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.slideUp::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-mainlines);
+  z-index: -1;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.slideUp:hover {
+  color: var(--color-paper);
+}
+
+.slideUp:hover::after {
+  transform: translateY(0);
+}
+
+.skill {
+  padding: 0.1rem 1rem;
+  background: var(--color-lightText);
+  /* border: 1px solid var(--color-darktext); */
+}
+
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+}
+
+.follower {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  transition: background-color 0.3s ease-in-out, transform 0.1s ease-out;
+  pointer-events: none;
+}
+
+.box {
+  width: 200px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out;
+}
